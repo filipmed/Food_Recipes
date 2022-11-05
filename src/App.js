@@ -12,7 +12,7 @@ function App() {
     .then(response=> response.data)
     .then(data=>{
       console.log(data.results)
-      setData([data.results])
+      setData(data.results)
     }
     ).catch((error) => {
       console.log(error);
@@ -27,12 +27,14 @@ function App() {
           <div className='recipes'>
             
           
-
+            <ul>
           {data.map((item) => {
-          return <li>
-            <img src={item[1].image}></img>
+          return <li key={item.id}>
+            <h2>{item.title}</h2>
+            <img src={item.image}></img>
             </li>;
         })}
+        </ul>
 
           
           </div>
